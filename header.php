@@ -24,21 +24,21 @@
 	<header id="site-header">
 		<div class="container">
 			<button class="site-cheeseburger">
-				<img src="https://via.placeholder.com/50x50" alt="">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/hamburger.svg" alt="Hamburger Menu">
 			</button>
 
 			<a href="/" class="site-logo" rel="home">
-				<img src="assets/images/logo-white.svg" alt="Quarteirão da Portugália">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-white.svg" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
-
+			
 			<nav class="site-main-nav">
-				<ul>
-					<li><a href="#enquadramento">Enquadramento</a></li>
-					<li><a href="#projeto">Projeto</a></li>
-					<li><a href="#estudo">Estudo</a></li>
-					<li><a href="#participacao">Participação</a></li>
-					<li><a href="#noticias">Notícias</a></li>
-				</ul>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'main',
+					'menu_id'        => 'primary-menu',
+					''
+				) );
+				?>
 			</nav>
 		</div>
 	</header>
@@ -46,19 +46,19 @@
     <nav id="site-side-nav">
         <div class="header">
             <button class="side-nav-close">
-                <img src="https://via.placeholder.com/50x50" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/close.svg" alt="Close Navigation">
             </button>
             <a href="/" class="site-logo" rel="home">
-                <img src="assets/images/logo-black.svg" alt="Qurteirão da Portugália">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-black.svg" alt="<?php bloginfo( 'name' ); ?>">
             </a>
         </div>
-        <ul>
-            <li><a href="#enquadramento">Enquadramento</a></li>
-            <li><a href="#projeto">Projeto</a></li>
-            <li><a href="#estudo">Estudo</a></li>
-            <li><a href="#participacao">Participação</a></li>
-            <li><a href="#noticias">Notícias</a></li>
-        </ul>
+		<?php
+		wp_nav_menu( array(
+			'theme_location' => 'main',
+			'menu_id'        => 'primary-menu',
+			''
+		) );
+		?>
     </nav>
 
 	<div id="site-content">
