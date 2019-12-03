@@ -169,3 +169,35 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Gestão do Site',
+		'menu_title'	=> 'Gestão do Site',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'FAQs',
+		'menu_title'	=> 'FAQs',
+		'parent_slug'	=> 'theme-general-settings',
+		'position' => '63.1'
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Contactos',
+		'menu_title'	=> 'Contactos',
+		'parent_slug'	=> 'theme-general-settings',
+		'position' => '63.2'
+	));
+	
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Theme Footer Settings',
+	// 	'menu_title'	=> 'Footer',
+	// 	'parent_slug'	=> 'theme-general-settings',
+	// ));
+	
+}

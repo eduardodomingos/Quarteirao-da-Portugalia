@@ -15,62 +15,72 @@
 
 	<footer id="site-footer">
 		<div class="container">
-			<section id="faqs">
-				<div class="row">
-					<div class="col-sm-12 col-md-6">
-						<h2>FAQs</h2>
+			<?php if( have_rows('faqs', 'option') ): ?>
+				<section id="faqs">
+					<div class="row">
+						<div class="col-sm-12 col-md-6">
+							<h2>FAQs</h2>
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<ul class="accordion faqs-list">
+								<?php while( have_rows('faqs', 'option') ): the_row(); ?>
+									<li <?php echo get_row_index() <= get_field('active_faqs','option') ? 'class="active"' : ''; ?> >
+										<p class="toggle question"><?php the_sub_field('question'); ?></p>
+										<div class="inner answer"><?php the_sub_field('answer'); ?></div>
+									</li>
+								<?php endwhile; ?>
+							</ul>
+							<button class="btn-more">Ver todos</button>
+						</div>
 					</div>
-					<div class="col-sm-12 col-md-6">
-						<ul class="accordion faqs-list">
-							<li class="active">
-								<p class="toggle question">Sabia que temos resposta ao que pergunta?</p>
-								<p class="inner answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero asperiores ab voluptate, saepe, consequuntur rerum maiores nemo earum mollitia sequi ipsam sit qui sapiente, in quidem esse libero eveniet.</p>
-							</li>
-							<li class="active">
-								<p class="toggle question">Sabia que temos resposta ao que pergunta?</p>
-								<p class="inner answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero asperiores.</p>
-							</li>
-							<li>
-								<p class="toggle question">Sabia que temos resposta ao que pergunta?</p>
-								<p class="inner answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero asperiores.</p>
-							</li>
-							<li>
-								<p class="toggle question">Sabia que temos resposta ao que pergunta?</p>
-								<p class="inner answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero asperiores.</p>
-							</li>
-							<li>
-								<p class="toggle question">Sabia que temos resposta ao que pergunta?</p>
-								<p class="inner answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero asperiores.</p>
-							</li>
-						</ul>
-						<button class="btn-more">Ver todos</button>
-					</div>
-				</div>
-			</section>
+				</section>
+
+			<?php endif; ?>
 
 			<section class="contacts">
 				<h2>Contactos</h2>
 				<div class="row">
+					<?php if(get_field('address', 'option')):?>
 					<div class="col-sm-12 col-md-4">
-						<p>Rua José Afonso, Bloco B, Quarteirão <br>
-						n45 000-000, Lisboa Portugal</p>
+						<p><?php the_field('address', 'option'); ?></p>
 					</div>
-					<div class="col-sm-12 col-md-4">
-						<p>Email: <a href="mailto:quarteiraoportugalia@projeto.pt">quarteiraoportugalia@projeto.pt</a><br>
-						Tlfn. <a href="tel:+35121000000">+351 21 000 000</a><br>
-						Tlmv. <a href="tel:+35191000000">+351 91 000 000</a>
-					</p>
-					</div>
+					<?php endif; ?>
+
+					<?php if( have_rows('emails', 'option') || have_rows('phones', 'option')  ): ?>
+
+						<div class="col-sm-12 col-md-4">
+							<p>
+							<?php if( have_rows('emails', 'option') ): ?>
+								Email:
+								<?php while( have_rows('emails', 'option') ): the_row(); ?>
+									<a href="mailto:<?php the_sub_field('email');?>"><?php the_sub_field('email');?></a><br>
+								<?php endwhile; ?>
+							<?php endif; ?>
+							<?php if( have_rows('phones', 'option') ): ?>
+								<?php while( have_rows('phones', 'option') ): the_row(); ?>
+									Tlfn. <a href="tel:<?php echo str_replace(" ", "", get_sub_field('phone'));?>"><?php the_sub_field('phone');?></a><br>
+								<?php endwhile; ?>
+							<?php endif; ?>
+							<?php if( have_rows('mobiles', 'option') ): ?>
+								<?php while( have_rows('mobiles', 'option') ): the_row(); ?>
+									Tlmv. <a href="tel:<?php echo str_replace(" ", "", get_sub_field('mobile'));?>"><?php the_sub_field('mobile');?></a><br>
+								<?php endwhile; ?>
+							<?php endif; ?>
+							</p>
+						</div>
+					
+					<?php endif; ?>
+
 					<div class="col-sm-12 col-md-4">
 						<a href="/" class="site-logo" rel="home">
-							<img src="assets/images/logo-white.svg" alt="Qurteirão da Portugália">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-white.svg" alt="<?php bloginfo( 'name' ); ?>">
 						</a>
 					</div>
 				</div>
 			</section>
 
 			<section class="legal">
-				<p>copyright &copy; 2019 essentia &copy; of their respective owners</p>
+				<p>copyright &copy; <?php echo  date('Y'); ?> essentia &copy; of their respective owners</p>
 			</section>
 		</div>
 	</footer>
