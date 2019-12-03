@@ -1,0 +1,16 @@
+.site-cheeseburger {
+    #site-header-cloned &,
+    #site-header & {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        padding: 0;
+
+        @include mq($from: desktop) {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+%headings {
+    font-family: $font-sans;
+    @include font-weight('bold');
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+@include headings() {
+    @extend %headings;
+}
+
+strong, b {
+    @include font-weight('bold');
+}

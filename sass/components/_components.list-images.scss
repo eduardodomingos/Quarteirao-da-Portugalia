@@ -1,0 +1,14 @@
+.c-list-images {
+    margin: 0;
+    margin-bottom: 25px;
+    list-style: none;
+    @include mq($from: tablet) {
+        margin-bottom: 0;
+        img {
+            max-width: 80%;
+        }
+        li:nth-child(even) {
+            text-align: right;
+        }
+    }
+}
