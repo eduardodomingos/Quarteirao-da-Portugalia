@@ -68,16 +68,24 @@
             });
 
             // Blueprint
-            $('#c-blueprint .filters li').click(function(){
-                $(this).siblings( ".active" ).removeClass('active');
-                $(this).addClass('active');
+            // $('#c-blueprint .filters li').click(function(){
+            //     $(this).siblings( ".active" ).removeClass('active');
+            //     $(this).addClass('active');
+            //     var id = $(this).attr('id');
+            //     var $blueprint = $('#c-blueprint #blueprint-' + id.split('-')[1]);
+            //     var $modal = $('#c-blueprint #modal-' + id.split('-')[1]);
+            //     $modal.siblings( ".active" ).removeClass('active');
+            //     $modal.addClass('active');
+            //     $('#c-blueprint .blueprints .active').removeClass('active');
+            //     $blueprint.addClass('active');
+            // });
+            var $blueprint;
+            $('#c-blueprint .filters').on('mouseenter', '> li', function(e) {
                 var id = $(this).attr('id');
-                var $blueprint = $('#c-blueprint #blueprint-' + id.split('-')[1]);
-                var $modal = $('#c-blueprint #modal-' + id.split('-')[1]);
-                $modal.siblings( ".active" ).removeClass('active');
-                $modal.addClass('active');
-                $('#c-blueprint .blueprints .active').removeClass('active');
+                $blueprint = $('#c-blueprint #blueprint-' + id.split('-')[1]);
                 $blueprint.addClass('active');
+            }).on('mouseleave', '> li', function (e) {
+                $blueprint.removeClass('active');
             });
 
 
