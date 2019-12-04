@@ -32,6 +32,9 @@
             @include mq($from: desktop) {
                 @include inuit-font-size(70px, 68px);
             }
+            > *:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 

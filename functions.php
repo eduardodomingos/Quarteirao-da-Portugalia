@@ -199,13 +199,11 @@ if( function_exists('acf_add_options_page') ) {
 	// 	'menu_title'	=> 'Footer',
 	// 	'parent_slug'	=> 'theme-general-settings',
 	// ));
-
-	function qpt_get_template_part( $slug, $name = null, $data = array() ) {
-		extract( $data );
-		if ( $name )
-			$file = "{$slug}-{$name}.php";
-		else
-			$file = "{$slug}.php";
-		include locate_template( $file );
-	}
 }
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyA-sSwcZyd7Yc6za09svn6c4hVFxpCEFXI');
+}
+
+add_action('acf/init', 'my_acf_init');
