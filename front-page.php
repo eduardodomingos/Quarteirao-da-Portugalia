@@ -20,7 +20,7 @@ get_header();
     <?php while( have_rows('homepage_content') ): the_row(); ?>
         <?php if( get_row_layout() == 'hero' ): ?>
 
-			<section id="hero" <?php echo get_sub_field('highlight_color') ? 'class="'. get_sub_field('highlight_color') .'"' : ''; ?>>
+			<section id="hero" <?php echo get_sub_field('tagline_interval') ? 'data-tagline-interval="' . get_sub_field('tagline_interval')*1000 .'"' : ''; ?> <?php echo get_sub_field('highlight_color') ? 'class="'. get_sub_field('highlight_color') .'"' : ''; ?>>
 				<div class="hero-bg">
 					<video autoplay="" loop="" muted="" poster="">
 						<source src="<?php the_sub_field('video_mp4'); ?>" type="video/mp4">
@@ -32,7 +32,7 @@ get_header();
 				<?php if( have_rows('taglines') ): ?>
 					<ul>
 					<?php while( have_rows('taglines') ): the_row();?>
-						<li class="c-title"><?php the_sub_field('tagline') ?></li>
+						<li class="animated c-title"><?php the_sub_field('tagline') ?></li>
 					<?php endwhile; ?>
 					</ul>
 				<?php endif; ?>

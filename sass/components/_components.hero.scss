@@ -12,6 +12,7 @@
         top: 120px;
         left: 50px;
         margin: 0;
+        width: 100%;
         max-width: 60%;
         @include mq($from: desktop) {
             top: 50%;
@@ -22,6 +23,10 @@
             @extend %headings;
             color: $color-white;
             margin: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
             @include inuit-font-size(30px, 30px);
 
             @include mq($from: desktop) {

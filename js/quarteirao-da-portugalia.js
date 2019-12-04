@@ -21,6 +21,8 @@
         if( dom.$body.hasClass('home') ) {
             stickyHeader();
 
+            taglinesLoop($('#hero').data('tagline-interval'));
+
             // On mobile, list images become a slider
             if(window.innerWidth < breakpoints.tablet) {
                 listImagesSlider();
@@ -156,6 +158,25 @@
         // ######################################################
         // Global Functions
         // ######################################################
+        function taglinesLoop(interval) {
+            interval = (typeof interval !== 'undefined') ? interval : 5000;
+            var $list = $('#hero li');
+            if($list.length > 1) {
+                var $cur = $list.first().addClass('fadeIn'),
+                $next = $cur.next();
+                setInterval(function () {
+                    $cur.removeClass('fadeIn').addClass('fadeOut');
+                    $cur = $next.addClass('fadeIn').removeClass('fadeOut');
+                    $next = $cur.next();
+                    if (!$next.length) {
+                        $next = $list.first();
+                    }
+                }, interval);
+            } else {
+                $list.first().addClass('fadeIn');
+            }
+        }
+
         function listImagesSlider() {
             $('.c-list-images').slick({
                 autoplay: true,
