@@ -15,16 +15,33 @@
 get_header();
 ?>
 
-<section id="hero">
-	<div class="hero-bg">
-		<video autoplay="" loop="" muted="" poster="">
-			<source src="assets/video/video.mp4" type="video/mp4">
-		</video>
-	</div>
-	<ul>
-		<li class="c-title">Um novo quarteirão para os <span class="orange">Lisboetas</span></li>
-	</ul>
-</section>
+
+<?php if( have_rows('homepage_content') ): ?>
+    <?php while( have_rows('homepage_content') ): the_row(); ?>
+        <?php if( get_row_layout() == 'hero' ): ?>
+
+			<section id="hero" <?php echo get_sub_field('highlight_color') ? 'class="'. get_sub_field('highlight_color') .'"' : ''; ?>>
+				<div class="hero-bg">
+					<video autoplay="" loop="" muted="" poster="">
+						<source src="<?php the_sub_field('video_mp4'); ?>" type="video/mp4">
+						<?php if(get_sub_field('video_webm')): ?>
+							<source src="<?php the_sub_field('video_webm'); ?>" type="video/webm">
+						<?php endif; ?>
+					</video>
+				</div>
+				<?php if( have_rows('taglines') ): ?>
+					<ul>
+					<?php while( have_rows('taglines') ): the_row();?>
+						<li class="c-title"><?php the_sub_field('tagline') ?></li>
+					<?php endwhile; ?>
+					</ul>
+				<?php endif; ?>
+			</section>
+
+        <?php endif; ?>
+    <?php endwhile; ?>
+<?php endif; ?>
+
 
 
 

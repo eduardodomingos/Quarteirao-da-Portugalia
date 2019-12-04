@@ -199,5 +199,13 @@ if( function_exists('acf_add_options_page') ) {
 	// 	'menu_title'	=> 'Footer',
 	// 	'parent_slug'	=> 'theme-general-settings',
 	// ));
-	
+
+	function qpt_get_template_part( $slug, $name = null, $data = array() ) {
+		extract( $data );
+		if ( $name )
+			$file = "{$slug}-{$name}.php";
+		else
+			$file = "{$slug}.php";
+		include locate_template( $file );
+	}
 }
