@@ -53,10 +53,32 @@ get_header();
 				<div class="container">
 					<div class="row">
 						<div class="col-sm col-lg-7 <?php echo $contents['left_column']['animation'] ? 'wow fast '. $contents['left_column']['animation'] : ''; ?>">
-							<?php echo  $contents['left_column']['content']; ?>
+							<div class="wyswyg">	
+								<?php echo  $contents['left_column']['content']; ?>
+							</div>
 						</div>
 						<div class="col-sm col-lg-4 offset-lg-1 <?php echo $contents['right_column']['animation'] ? 'wow fast '. $contents['right_column']['animation'] : ''; ?>">
-							<?php echo  $contents['right_column']['content']; ?>
+							<div class="wyswyg">
+								<?php echo  $contents['right_column']['content']; ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<?php elseif( get_row_layout() == 'content_block_1_col' ): ?>
+			<?php 
+				$settings = get_sub_field('settings');
+				$contents = get_sub_field('contents');
+			?>
+			
+			<section <?php echo $settings['id'] ? 'id="'. $settings['id'] .'"' :  ''; ?> class="block block-content <?php echo $settings['color'] ? $settings['color'] :''; ?> <?php  echo $settings['heading'] ? $settings['heading'] :''; ?>">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm <?php echo $contents['column_1']['animation'] ? 'wow fast '. $contents['column_1']['animation'] : ''; ?>">
+							<div class="wyswyg">	
+								<?php echo  $contents['column_1']['content']; ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -299,8 +321,6 @@ get_header();
 												<div class="content-wrapper">
 													<?php echo  $event['event']['content']; ?>
 												</div>
-												
-												
 											</div>
 										</div>
 										<?php endforeach;?>
@@ -312,11 +332,31 @@ get_header();
 				</section>
 			<?php endif;?>
 			
-
-
-
-
-
+		<?php elseif( get_row_layout() == 'photos_block' ): ?>
+			<?php 
+				$settings = get_sub_field('settings');
+				$contents = get_sub_field('contents');
+			?>
+			<section <?php echo $settings['id'] ? 'id="'. $settings['id'] .'"' :  ''; ?> class="block block-content <?php echo $settings['color'] ? $settings['color'] :''; ?> <?php echo $settings['heading'] ? $settings['heading'] :''; ?>">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm col-lg-7 <?php echo $contents['column_1']['animation'] ? 'wow fast '. $contents['column_1']['animation'] : ''; ?> <?php echo $settings['position'] == 'right' ? 'order-md-2' : '';?>" >
+							<?php if(count($contents['column_1']['photos']) > 0): ?>
+									<ul class="c-list-images">
+									<?php foreach($contents['column_1']['photos'] as $photos): ?>
+										<?php foreach($photos as $photo): ?>
+											<li><?php echo wp_get_attachment_image($photo, 'large'); ?></li>
+										<?php endforeach; ?>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+						</div>
+						<div class="col-sm col-lg-4 offset-lg-1 <?php echo $contents['column_2']['animation'] ? 'wow fast '. $contents['column_2']['animation'] : ''; ?> <?php echo $settings['position'] == 'right' ? 'order-md-1' : '';?>">
+							<?php echo  $contents['column_2']['content']; ?>
+						</div>
+					</div>
+				</div>
+			</section>
 		<?php endif; ?>
 		
     <?php endwhile; ?>

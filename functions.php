@@ -43,6 +43,7 @@ if ( ! function_exists( 'qpt_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		add_image_size( 'modal-gallery', 800, 300, false );
+		add_image_size( 'large', 1200 );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -209,3 +210,23 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
+
+add_filter('wp_get_attachment_image_src','delete_width_height', 10, 4);
+
+function delete_width_height($image, $attachment_id, $size, $icon){
+
+    $image[1] = '';
+    $image[2] = '';
+    return $image;
+}
+
+function remove_image_size_attributes( $html ) {
+	return preg_replace( '/(width|height)="\d*"/', '', $html );
+	}
+	
+	// Remove image size attributes from post thumbnails
+	add_filter( 'post_thumbnail_html', 'remove_image_size_attributes' );
+	
+	// Remove image size attributes from images added to a WordPress post
+	add_filter( 'image_send_to_editor', 'remove_image_size_attributes' );
