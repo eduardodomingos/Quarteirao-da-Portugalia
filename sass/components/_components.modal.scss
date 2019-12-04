@@ -96,6 +96,7 @@
                 text-decoration: underline;
             }
             ul {
+                @extend %list;
                 font-family: $font-serif;
                 @include font-weight('regular');
                 @include inuit-font-size(14px, 17px); 
