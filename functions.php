@@ -42,6 +42,8 @@ if ( ! function_exists( 'qpt_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		add_image_size( 'modal-gallery', 800, 300, false );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'main' => esc_html__( 'Main Navigation', 'qpt' ),
