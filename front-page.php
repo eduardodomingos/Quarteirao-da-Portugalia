@@ -459,6 +459,9 @@ get_header();
 										<div class="c-modal" id="modal-<?php echo $key + 1; ?>">
 											<button class="modal-close">Fechar</button>
 											<div class="modal-inner">
+												<figure class="media">
+													<?php echo wp_get_attachment_image($item['blueprint']['image'], 'large'); ?>
+												</figure>
 												<div class="content-wrapper">
 													<?php echo $item['blueprint']['text'];?>
 												</div>
@@ -472,6 +475,20 @@ get_header();
 					</div>
 				</div>
 			</section>
+		<?php elseif( get_row_layout() == 'gallery' ): ?>
+			<?php 
+				$settings = get_sub_field('settings');
+				$contents = get_sub_field('photos');
+			?>
+
+			<div class="c-slider">
+				<?php foreach($contents as $content): ?>
+					<?php foreach($content as $photo): ?>
+						<?php echo wp_get_attachment_image($photo, 'large'); ?>
+					<?php endforeach; ?>
+				<?php endforeach; ?>
+			</div>
+			
 		<?php endif; ?>
 		
     <?php endwhile; ?>

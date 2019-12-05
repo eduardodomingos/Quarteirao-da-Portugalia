@@ -2,6 +2,7 @@
     $(document).ready(function(){
        // Cache references to DOM elements for performance
         var dom = {
+            $html:               $('html'),
             $window:             $(window),
             $body:               $('body'),
             $siteHeader:         $('#site-header'),
@@ -52,7 +53,7 @@
                         autoplay: true
                     });
                 }
-                $modal.addClass('active');
+                openModal($modal);
             });
 
             $('.c-modal .modal-close').click(function(){
@@ -64,21 +65,67 @@
                         $slider.slick('unslick');
                     }
                 }
-                $modal.removeClass('active');
+                closeModal($modal);
+            });
+
+            function closeModal(modal) {
+                modal.removeClass('active');
+                //unlockScroll();
+                $('#c-blueprint .filters li.active').removeClass('active');
+            }
+
+            function openModal(modal) {
+                modal.addClass('active');
+                //lockScroll();
+            }
+
+            function lockScroll() {
+                var scrollPosition = [
+                    self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
+                    self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
+                ];
+                
+                dom.$html.data('scroll-position', scrollPosition);
+                dom.$html.data('previous-overflow', dom.$html.css('overflow'));
+                dom.$html.css('overflow', 'hidden');
+                window.scrollTo(scrollPosition[0], scrollPosition[1]);
+            }
+
+            function unlockScroll() {
+                var scrollPosition = dom.$html.data('scroll-position');
+                if(typeof scrollPosition !== 'undefined') {
+                    console.log(scrollPosition);
+                    dom.$html.css('overflow', dom.$html.data('previous-overflow'));
+                    window.scrollTo(scrollPosition[0], scrollPosition[1]);
+                }
+            }
+
+            $( document ).on( 'keydown', function ( e ) {
+                if ( e.keyCode === 27 ) { // ESC
+                    closeModal($('.c-modal.active'));
+                }
+            });
+
+            $(document).mouseup(function(e) {
+                var container = $(".c-modal.active");
+                // if the target of the click isn't the container nor a descendant of the container
+                if (!container.is(e.target) && container.has(e.target).length === 0) 
+                {
+                    closeModal(container);
+                }
             });
 
             // Blueprint
-            // $('#c-blueprint .filters li').click(function(){
-            //     $(this).siblings( ".active" ).removeClass('active');
-            //     $(this).addClass('active');
-            //     var id = $(this).attr('id');
-            //     var $blueprint = $('#c-blueprint #blueprint-' + id.split('-')[1]);
-            //     var $modal = $('#c-blueprint #modal-' + id.split('-')[1]);
-            //     $modal.siblings( ".active" ).removeClass('active');
-            //     $modal.addClass('active');
-            //     $('#c-blueprint .blueprints .active').removeClass('active');
-            //     $blueprint.addClass('active');
-            // });
+            $('#c-blueprint .filters li').click(function(e){
+                $(this).siblings( ".active" ).removeClass('active');
+                $(this).addClass('active');
+                var id = $(this).attr('id');
+                var $modal = $('#c-blueprint #modal-' + id.split('-')[1]);
+                $modal.siblings( ".active" ).removeClass('active');
+                openModal($modal);
+                e.stopPropagation();
+            });
+
             var $blueprint;
             $('#c-blueprint .filters').on('mouseenter', '> li', function(e) {
                 var id = $(this).attr('id');

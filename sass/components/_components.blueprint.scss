@@ -48,6 +48,14 @@
                     }
                 }
 
+                &.active {
+                    background-color: $color-green;
+                    svg {
+                        fill: $color-white;
+                        stroke: $color-white;
+                    }
+                }
+
                 @include mq($from: tablet) {
                     &:not(:last-child) {
                         margin: 0;
@@ -89,6 +97,14 @@
             }
             img {
                 width: 100%;
+            }
+        }
+
+        .c-modal {
+            .media {
+                @include mq($from:tablet) {
+                    display: none;
+                }
             }
         }
     }
