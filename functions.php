@@ -221,12 +221,11 @@ function delete_width_height($image, $attachment_id, $size, $icon){
     return $image;
 }
 
-function remove_image_size_attributes( $html ) {
-	return preg_replace( '/(width|height)="\d*"/', '', $html );
-	}
-	
-	// Remove image size attributes from post thumbnails
-	add_filter( 'post_thumbnail_html', 'remove_image_size_attributes' );
-	
-	// Remove image size attributes from images added to a WordPress post
-	add_filter( 'image_send_to_editor', 'remove_image_size_attributes' );
+function my_custom_mime_types( $mimes ) {
+	// New allowed mime types.
+	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svgz'] = 'image/svg+xml';
+		
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'my_custom_mime_types' );

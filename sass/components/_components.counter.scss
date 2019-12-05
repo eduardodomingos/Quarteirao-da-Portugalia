@@ -6,7 +6,7 @@
         img {
             margin-bottom: 15px;
         }
-        .numscroller {
+        .numscroller-wrapper {
             display: block;
             @include inuit-font-size(35px, 35px);
             @include font-weight(bold);
