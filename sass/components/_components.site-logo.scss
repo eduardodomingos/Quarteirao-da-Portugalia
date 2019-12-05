@@ -10,20 +10,39 @@
         width: 140px;
     }
     #site-header & {
+        svg {
+            fill: $color-white;
+        }
         @include mq($from: desktop) {
             width: 277px;
         }
     }
+
+    .single #site-header & {
+        svg {
+            fill: $color-grey;
+        }
+    }
+
     #site-header-cloned & {
+        svg {
+            fill: $color-grey;
+        }
         @include mq($from: desktop) {
             left: 0;
             transform: translateY(-50%);
         }
     }
     #site-footer & {
+        svg {
+            fill: $color-white;
+        }
         width: 140px;
         @include mq($from: tablet) {
             float: right;
         }
+    }
+    svg {
+        width: 100%;
     }
 }
