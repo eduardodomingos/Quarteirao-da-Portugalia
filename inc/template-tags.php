@@ -46,6 +46,25 @@ if ( ! function_exists( 'qpt_posted_by' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'qpt_posted_in' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function qpt_posted_in() {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( esc_html__( ', ', 'qpt' ) );
+		if ( $categories_list ) {
+			/* translators: 1: list of categories. */
+			?>
+			<span class="cat-links meta"><span class="screen-reader-text">Em</span> <?php echo $categories_list; ?></span>
+			<?php
+		}
+	}
+endif;
+
 if ( ! function_exists( 'qpt_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.

@@ -266,8 +266,8 @@
             .insertBefore( '#site-header' )
             .attr( 'id', function(i, str) { return str + '-cloned';} );
             dom.$siteHeaderClone = $('#site-header-cloned');
-            var src = dom.$siteHeaderClone.find('.site-logo img').attr('src').replace("white", "black");
-            dom.$siteHeaderClone.find('.site-logo img').attr('src', src);
+            // var src = dom.$siteHeaderClone.find('.site-logo img').attr('src').replace("white", "black");
+            // dom.$siteHeaderClone.find('.site-logo img').attr('src', src);
             
             var winH = dom.$window.height();   // Get the window height.
 

@@ -22,7 +22,8 @@
         }
     }
 
-    // when inside article page
+    // when inside blog index or article page
+    .blog &,
     .single & {
         @include mq($from: desktop) {
             bottom: 0;

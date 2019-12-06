@@ -1,0 +1,28 @@
+.blog {
+    .page-title {
+        margin: 50px 0;
+    }
+
+    .posts {
+        padding-bottom: 70px;
+    }
+
+    .nav-links {
+        margin-bottom: 50px;
+        a {
+            display: inline-block;
+            background: $color-black;
+            color: $color-white;
+            padding: 10px;
+            text-decoration: none;
+            opacity: .8;
+            display: inline-block;
+            @include inuit-font-size(12px);
+            text-transform: uppercase;
+            font-style: italic;
+            @include attention() {
+                opacity: 1;
+            }
+        }
+    }
+}
