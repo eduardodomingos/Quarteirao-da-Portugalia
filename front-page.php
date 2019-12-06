@@ -502,7 +502,7 @@ get_header();
 							<div class="col-sm">
 								<div class="c-counter">
 									<img src="<?php echo $counter['icon'];?>" alt="">
-									<p><span class="numscroller-wrapper"><span class="numscrollerrrrr" data-min='1' data-max='100' data-delay='5' data-increment='2'><?php echo $counter['value'];?></span><?php echo $counter['unit'];?></span><?php echo $counter['text'];?></p>
+									<p><span class="numscroller-wrapper"><span class="numscroller" data-min='1' data-max='<?php echo $counter['value'];?>' data-delay='5' data-increment='2'><?php echo $counter['value'];?></span><?php echo $counter['unit'];?></span><?php echo $counter['text'];?></p>
 								</div>
 							</div>
 						<?php endforeach; ?>
