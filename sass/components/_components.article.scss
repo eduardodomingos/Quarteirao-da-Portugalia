@@ -1,3 +1,128 @@
 .single {
-    
+    .updated:not(.published){
+        display: none;
+    }
+
+    .entry-header {
+        padding-top: 40px;
+        @include mq($from: tablet) {
+            padding-top: 90px;
+        }
+        > .container {
+            position: relative;
+        }
+    }
+
+    .entry-title {
+        @include inuit-font-size(50px, 54px);
+    }
+
+    .entry-buttons {
+        margin-top: 10px;
+        @include mq($from: tablet) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 0;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            li {
+                display: flex;
+                width: 45px;
+                height: 50px;
+                justify-content: center;
+                align-items: center;
+                > * {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    justify-content: center;
+                    align-items: center;
+                }
+                @include attention() {
+                    opacity: .5;
+                }
+            }
+        }
+        svg {
+            width: 22px;
+        }
+
+        button {
+            background: transparent;
+            border: 0;
+            padding: 0;
+        }
+    }
+
+    .entry-content {
+        font-family: $font-serif;
+        font-style: italic;
+        @include inuit-font-size(14px, 25px);
+
+        ul {
+            @extend %list;
+        }
+    }
+
+    .entry-footer {
+        margin-top: 30px;
+        margin-bottom: 60px;
+    }
+
+    .posted-on {
+        font-family: $font-serif;
+        font-style: italic;
+        @include inuit-font-size(14px, 25px);
+        text-transform: capitalize;
+        @include font-weight(bold);
+    }
+
+    .post-thumbnail {
+        margin: 10px 0 35px;
+        @include mq($from: tablet) {
+            margin: 30px 0 80px;
+        }
+    }
+
+    .lead {
+        @include font-weight(bold);
+        @include inuit-font-size(18px, 25px);
+        margin-bottom: 35px;
+        @include mq($from: tablet) {
+            margin-bottom: 60px;
+        }
+    } 
+
+    .back-to-blog {
+        font-style: italic;
+        font-family: $font-serif;
+        text-transform: uppercase;
+        @include inuit-font-size(10px, 15px);
+        display: flex;
+        align-items: center;
+        span {
+            background: $color-black;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 22px;
+        }
+        svg {
+            width: 20px;
+            transition: $transition;
+        }
+        @include attention() {
+            svg {
+                transform: translateX(-3px);
+            }
+        }
+    }
+
+
 }
