@@ -1,6 +1,6 @@
 .block-content {
     font-family: $font-serif;
-    @include inuit-font-size(12px, 18px);
+    @include inuit-font-size(14px, 22px);
     @include font-weight('regular'); 
     font-style: italic;
     text-align: justify;
@@ -9,11 +9,11 @@
     }
 
     h1 {
-        @include inuit-font-size(30px, 30px);
+        @include inuit-font-size(35px, 35px);
         font-style: normal;
         text-align: left;
         @include mq($from: desktop) {
-            @include inuit-font-size(35px, 39px);
+            @include inuit-font-size(40px, 40px);
             max-width: 80%;
         }
     }
@@ -21,7 +21,10 @@
     &.big-heading {
         h1 {
             max-width: none;
-            @include inuit-font-size(55px, 58px);
+            @include inuit-font-size(45px, 45px);
+            @include mq($from: desktop) {
+                @include inuit-font-size(50px, 50px);
+            }
         }
     }
 
