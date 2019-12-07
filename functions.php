@@ -211,7 +211,6 @@ function my_acf_init() {
 
 add_action('acf/init', 'my_acf_init');
 
-
 add_filter('wp_get_attachment_image_src','delete_width_height', 10, 4);
 
 function delete_width_height($image, $attachment_id, $size, $icon){
@@ -221,11 +220,20 @@ function delete_width_height($image, $attachment_id, $size, $icon){
     return $image;
 }
 
-function my_custom_mime_types( $mimes ) {
+function qpt_custom_mime_types( $mimes ) {
 	// New allowed mime types.
 	$mimes['svg'] = 'image/svg+xml';
 	$mimes['svgz'] = 'image/svg+xml';
 		
 	return $mimes;
 }
-add_filter( 'upload_mimes', 'my_custom_mime_types' );
+add_filter( 'upload_mimes', 'qpt_custom_mime_types' );
+
+function qpt_get_template_part( $slug, $name = null, $data = array() ) {
+    extract( $data );
+    if ( $name )
+        $file = "{$slug}-{$name}.php";
+    else
+        $file = "{$slug}.php";
+    include locate_template( $file );
+}

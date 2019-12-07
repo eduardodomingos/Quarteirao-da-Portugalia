@@ -20,21 +20,24 @@
             max-width: 50%;
         }
         li {
-            @extend %headings;
-            color: $color-white;
-            margin: 0;
             opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            @include inuit-font-size(30px, 30px);
+            h1 {
+            //@extend %headings;
+                color: $color-white;
+                margin: 0;
+                
+                position: absolute;
+                top: 0;
+                left: 0;
+                @include inuit-font-size(30px, 30px);
 
-            @include mq($from: desktop) {
-                @include inuit-font-size(70px, 68px);
+                @include mq($from: desktop) {
+                    @include inuit-font-size(70px, 68px);
+                }
             }
-            > *:last-child {
-                margin-bottom: 0;
-            }
+            // > *:last-child {
+            //     margin-bottom: 0;
+            // }
         }
     }
 
