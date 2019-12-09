@@ -32,4 +32,36 @@
             text-decoration: underline;
         }
     }
+
+    .button-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-more {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: transparent;
+        @include attention() {
+            transform: translateY(5px);
+        }
+        &:before {
+            content: '';
+            background-image: url('../assets/images/open-list-btn.svg');
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 16px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &.active {
+            transform: rotate(-180deg);
+        }
+    }
 }

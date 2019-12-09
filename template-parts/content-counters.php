@@ -12,5 +12,14 @@
             <?php endforeach; ?>
         <?php endforeach; ?>
         </div>
+        <?php if($more_link):?>
+            <div class="row">
+                <div class="col-sm">
+                    <p class="more-link">
+                        <a href="<?php echo $more_link; ?>">Saber mais</a>
+                    </p>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

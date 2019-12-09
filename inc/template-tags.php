@@ -24,7 +24,7 @@ if ( ! function_exists( 'qpt_posted_on' ) ) :
 			esc_html( get_the_modified_date('d \d\e F \d\e Y') )
 		);
 
-		echo '<span class="posted-on"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a></span>';
+		echo '<span class="posted-on">' . $time_string . '</span>';
 	}
 
 
@@ -146,7 +146,12 @@ if ( ! function_exists( 'qpt_post_thumbnail' ) ) :
 
 		<?php else : ?>
 
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php if( get_field('external_url', get_the_ID() )):?>
+				<a class="post-thumbnail" href="<?php echo esc_url( get_field('external_url', get_the_ID())); ?>"  aria-hidden="true" tabindex="-1">
+			<?php else:?>
+				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php endif;?>
+
 			<?php
 			the_post_thumbnail( 'post-thumbnail', array(
 				'alt' => the_title_attribute( array(

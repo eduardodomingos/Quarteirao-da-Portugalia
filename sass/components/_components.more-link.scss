@@ -1,0 +1,27 @@
+.more-link {
+    font-style: italic;
+    text-transform: uppercase;
+    font-family: $font-sans;
+    @include inuit-font-size(10px, 22px);
+    text-align: right;
+    margin-bottom: 0;
+    margin-top: 40px;
+    a {
+        padding-left: 30px;
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        @include attention() {
+            transform: translateY(-1px);
+        }
+        &:before {
+            content: '';
+            background: url('../assets/images/more-btn.svg');
+            width: 24px;
+            height: 21px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+}

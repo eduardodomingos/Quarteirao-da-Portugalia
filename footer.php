@@ -30,7 +30,9 @@
 									</li>
 								<?php endwhile; ?>
 							</ul>
-							<button class="btn-more">Ver todos</button>
+							<div class="button-wrapper">
+								<button class="btn-more"><span class="screen-reader-text">Ver todos</span></button>
+							</div>
 						</div>
 					</div>
 				</section>

@@ -28,7 +28,11 @@
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			if( get_field('external_url', get_the_ID() )) {
+				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_field('external_url', get_the_ID())) . '" rel="bookmark">', '</a></h2>' );
+			} else {
+				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			}
 		endif;
 		?>
 	</header><!-- .entry-header -->

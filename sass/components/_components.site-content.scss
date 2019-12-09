@@ -1,6 +1,7 @@
 #site-content {
     .home & {
         margin-top: -$site-header-height-m;
+        padding-bottom: 70px;
         @include mq($from: desktop) {
             margin-top: -$site-header-height-d;
         }

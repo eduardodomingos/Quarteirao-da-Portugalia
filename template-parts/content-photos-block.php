@@ -14,6 +14,11 @@
             </div>
             <div class="col-sm col-lg-4 offset-lg-1 <?php echo $contents['column_2']['animation'] ? 'wow fast '. $contents['column_2']['animation'] : ''; ?> <?php echo $settings['position'] == 'right' ? 'order-md-1' : '';?>">
                 <?php echo  $contents['column_2']['content']; ?>
+                <?php if($contents['column_2']['more_link']):?>
+                    <p class="more-link">
+                        <a href="<?php echo $contents['column_2']['more_link']; ?>">Saber mais</a>
+                    </p>
+                <?php endif; ?>
             </div>
         </div>
     </div>

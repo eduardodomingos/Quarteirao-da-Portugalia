@@ -72,13 +72,10 @@ get_header();
 			?>
 
 		<?php elseif( get_row_layout() == 'counters' ): ?>
-			<?php 
-				$settings = get_sub_field('settings');
-				$contents = get_sub_field('counters');
-			?>
 			<?php qpt_get_template_part('template-parts/content', 'counters', array(
 				'settings' => get_sub_field('settings'),
-				'contents' => get_sub_field('counters')
+				'contents' => get_sub_field('counters'),
+				'more_link' => get_sub_field('more_link')
 				));
 			?>
 		<?php elseif( get_row_layout() == 'communication' ): ?>

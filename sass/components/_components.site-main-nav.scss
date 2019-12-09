@@ -23,6 +23,7 @@
     }
 
     // when inside blog index or article page
+    .archive &,
     .blog &,
     .single & {
         @include mq($from: desktop) {
