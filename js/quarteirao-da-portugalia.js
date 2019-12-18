@@ -47,7 +47,7 @@
                 var id = $(this).attr('id');
                 var $modal = $('.c-timeline .c-modal#modal-' + id.split('-')[1]);
                 if($modal.find('.modal-slider').length) {
-                    $('.modal-slider').slick({
+                    $('.modal-slider').not('.slick-initialized').slick({
                         arrows: false,
                         dots: true,
                         autoplay: true
@@ -59,12 +59,6 @@
             $('.c-modal .modal-close').click(function(){
 
                 var $modal = $(this).parent();
-                if($modal.find('.modal-slider').length) {
-                    var $slider = $modal.find('.modal-slider');
-                    if($slider.hasClass('slick-initialized')){
-                        $slider.slick('unslick');
-                    }
-                }
                 closeModal($modal);
             });
 
