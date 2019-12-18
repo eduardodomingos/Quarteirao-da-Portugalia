@@ -1,7 +1,7 @@
 <section id="hero" <?php echo $settings['color'] ? 'class="'. $settings['color'] .'"': ''; ?>>
     <div class="hero-bg">
         <?php if($content['video_mp4'] || $content['video_webm'] ): ?>
-            <video autoplay="" loop="" muted="" poster="">
+            <video autoplay loop muted playsinline>
             <?php if($content['video_mp4']): ?>
                     <source src="<?php echo $content['video_mp4'];  ?>" type="video/mp4">
                 <?php endif; ?>
