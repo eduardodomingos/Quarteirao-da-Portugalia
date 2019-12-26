@@ -33,6 +33,7 @@
         @include mq($from: desktop) {
             left: 0;
             transform: translateY(-50%);
+            width: 180px;
         }
     }
     #site-footer & {
