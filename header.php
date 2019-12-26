@@ -24,7 +24,11 @@
 	<header id="site-header">
 		<div class="container">
 			<button class="site-cheeseburger">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/hamburger.svg" alt="Hamburger Menu">
+				<svg width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+					<path d="M15.1592 0H3.46497V2.40672H15.1592V0Z"/>
+					<path d="M11.8567 6.32471H0V8.73142H11.8567V6.32471Z"/>
+					<path d="M17 12.5933H1.57006V15H17V12.5933Z"/>
+				</svg>
 			</button>
 
 			<a href="/" class="site-logo" rel="home">

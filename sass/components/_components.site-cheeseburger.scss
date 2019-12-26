@@ -8,9 +8,18 @@
         background: transparent;
         border: none;
         padding: 0;
+        svg {
+            fill: $color-white;
+        }
 
         @include mq($from: desktop) {
             display: none;
+        }
+    }
+
+    #site-header-cloned & {
+        svg {
+            fill: $color-grey;
         }
     }
 }

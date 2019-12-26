@@ -16,7 +16,7 @@
     .header {
         height: $site-header-height-m;
         position: relative;
-        box-shadow: $box-shadow;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
         margin-bottom: 10px;
     }
 
