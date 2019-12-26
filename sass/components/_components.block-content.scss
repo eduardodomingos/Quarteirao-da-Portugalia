@@ -6,6 +6,13 @@
     text-align: justify;
     @include mq($from: desktop) {
         @include inuit-font-size(14px, 25px);
+        .row > div:first-child {
+            h1 + p {
+                margin-left: 70px;
+            }
+        }
+
+
     }
 
     h1 {
@@ -35,7 +42,7 @@
 
         img {
             margin-bottom: 25px;
-            width: 100%;
+            //width: 100%;
             height: auto;
         }
     }

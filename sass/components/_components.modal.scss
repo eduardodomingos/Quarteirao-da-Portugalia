@@ -24,21 +24,42 @@
         position: absolute;
         top: 10px;
         right: 10px;
+        z-index: 999;
+        width: 25px;
+        height: 27px;
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        svg {
+            fill: $color-white;
+        }
+        @include attention() {
+            svg {
+                fill: $color-green;
+            }
+        }
     }
     
     .modal-inner {
-        padding: 60px 20px;
+        padding: 0 20px 10px;
         display: flex;
         flex-direction: column;
         height: 100%;
-        @include mq($from: desktop) {
-            padding: 80px 20px;
+
+        .main-modal-media {
+            margin-left: -20px;
+            margin-right: -20px;
+            img {
+                width: 100%;
+            }
         }
 
         .modal-slider {
             list-style: none;
             margin: 0;
             margin-bottom: 25px;
+            margin-left: -20px;
+            margin-right: -20px;
             li {
                 display: flex;
                 justify-content: center;
