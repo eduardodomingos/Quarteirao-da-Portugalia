@@ -1,0 +1,12 @@
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    video {
+        width: 100%;
+        max-width: 90%; 
+        @include attention() {
+            outline: 0;
+            border: none;
+        }
+    }
+}

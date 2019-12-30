@@ -101,6 +101,20 @@ get_header();
 					'contents' => get_sub_field('contents')
 					));
 				?>
+				
+			<?php elseif( get_row_layout() == 'video' ): ?>
+				<?php qpt_get_template_part('template-parts/content', 'video', array(
+					'settings' => get_sub_field('settings'),
+					'video_url' => get_sub_field('video_mp4')
+					));
+				?>
+
+			<?php elseif( get_row_layout() == 'embedded_content' ): ?>
+				<?php qpt_get_template_part('template-parts/content', 'embedded', array(
+					'settings' => get_sub_field('settings'),
+					'embed' => get_sub_field('url')
+					));
+				?>
 			<?php endif; ?>
 			
 		<?php endwhile; ?>

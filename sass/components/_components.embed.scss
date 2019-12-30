@@ -1,0 +1,23 @@
+.embedded-content {
+    display: flex;
+    justify-content: center;
+    .embedded-content-container {
+        width: 90%;
+        > div {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            iframe,
+            object,
+            embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
