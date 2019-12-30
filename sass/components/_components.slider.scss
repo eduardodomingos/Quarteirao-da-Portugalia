@@ -15,6 +15,13 @@
                 transform: translateY(-50px);
                 opacity: 1;
             }
-        }  
+        }
+
+        .slick-slide {
+            @include attention() {
+                transform: translateY(-50px);
+                opacity: 1;
+            }
+        }
     }
 }
