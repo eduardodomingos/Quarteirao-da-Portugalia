@@ -75,7 +75,7 @@
 
 					<div class="col-sm-12 col-md-4">
 						<a href="/" class="site-logo" rel="home">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-white.svg" alt="<?php bloginfo( 'name' ); ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-footer.svg" alt="<?php bloginfo( 'name' ); ?>">
 						</a>
 					</div>
 				</div>

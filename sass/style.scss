@@ -143,6 +143,14 @@ $inuit-static-images: false;
 // @import "../node_modules/inuitcss/objects/objects.pack";
 
 // Bootstrap
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1000px
+);
+
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -216,6 +224,7 @@ $inuit-static-images: false;
 @import "components/components.article";
 @import "components/components.more-link";
 @import "components/components.buttons";
+@import "components/components.marker";
 // @import "components/components.site";
 // @import "components/components.hero";
 // @import "components/components.enquadramento";
@@ -249,3 +258,12 @@ $inuit-static-images: false;
 @import "../node_modules/inuitcss/utilities/utilities.hide";
 @import "utilities/utilities.layout";
 @import "utilities/utilities.accessibility";
+
+
+// @media (min-width: map-get($grid-breakpoints, xl)){
+//     .row > .col,
+//     .row > [class*="col-"] {
+//       padding-right: 60px;
+//       padding-left: 60px;
+//     }
+// }

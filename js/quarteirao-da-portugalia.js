@@ -164,7 +164,7 @@
                     $('.faqs-list li:not(.active)').show(350);
                 }
                 $(this).toggleClass('active');
-            });
+            });            
         }
 
 

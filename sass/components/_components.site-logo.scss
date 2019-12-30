@@ -40,7 +40,7 @@
         svg {
             fill: $color-white;
         }
-        width: 140px;
+        width: 160px;
         @include mq($from: tablet) {
             float: right;
         }

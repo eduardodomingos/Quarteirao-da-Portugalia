@@ -1,0 +1,29 @@
+.contents-wrapper {
+    position: relative;
+}
+
+.marker-wrapper {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.marker {
+    display: none;
+    @include mq($from: desktop) {
+        display: block;
+        background-image: url('../assets/images/marker.svg');
+        background-repeat: no-repeat;
+        width: 22px;
+        height: 62px;
+        position: sticky;
+        top: 80px;
+        left: calc(50% - 495px);
+    }
+    @include mq($from: wide) {
+        left: calc(50% - 520px);
+    }
+}

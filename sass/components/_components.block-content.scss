@@ -6,13 +6,27 @@
     text-align: justify;
     @include mq($from: desktop) {
         @include inuit-font-size(14px, 25px);
-        .row > div:first-child {
-            h1 + p {
-                margin-left: 70px;
+        &.multiple-rows {
+            .row {
+                > div {
+                    &:first-child {
+                        h1 + * {
+                            margin-left: 60px;
+                        }
+                    }
+                    &:last-child {
+                        h1 {
+                            text-align: right;
+                            float: right;
+                            & + * {
+                                clear: right;
+                                margin-right: 60px;
+                            }
+                        }
+                    }
+                }
             }
         }
-
-
     }
 
     h1 {

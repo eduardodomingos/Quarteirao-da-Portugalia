@@ -1,4 +1,6 @@
 #site-footer {
     background-color: $color-black;
     color: $color-white;
+    //position: relative;
+    //z-index: 999; // so marker goes under it
 }
