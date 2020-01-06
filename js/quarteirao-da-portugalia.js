@@ -17,11 +17,11 @@
             wide:    1200
         }
 
+        stickyHeader();
 
         // @ Homepage
         if( dom.$body.hasClass('home') ) {
-            stickyHeader();
-
+            
             taglinesLoop($('#hero').data('tagline-interval'));
 
             // On mobile, list images become a slider
@@ -164,9 +164,28 @@
                     $('.faqs-list li:not(.active)').show(350);
                 }
                 $(this).toggleClass('active');
-            });            
+            }); 
+            
+            // Add body class when footer is visible, so we can fade out the marker via css
+            $(window).scroll(function () {
+                if ($('#site-footer').isInViewport()) {
+                    dom.$body.addClass('footer-visible');
+                } else {
+                    dom.$body.removeClass('footer-visible');
+                }
+            });
+
         }
 
+        $.fn.isInViewport = function () {
+            let elementTop = $(this).offset().top;
+            let elementBottom = elementTop + $(this).outerHeight();
+        
+            let viewportTop = $(window).scrollTop();
+            let viewportBottom = viewportTop + $(window).height();
+        
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
 
         // @ Article
         if(dom.$body.hasClass('single-post')) {

@@ -13,6 +13,7 @@
 
 .marker {
     display: none;
+    transition: opacity .5s;
     @include mq($from: desktop) {
         display: block;
         background-image: url('../assets/images/marker.svg');
@@ -21,9 +22,13 @@
         height: 62px;
         position: sticky;
         top: 80px;
-        left: calc(50% - 495px);
+        left: calc(50% - 505px);
     }
     @include mq($from: wide) {
-        left: calc(50% - 520px);
+        left: calc(50% - 530px);
+    }
+
+    .footer-visible & {
+        opacity: 0;
     }
 }

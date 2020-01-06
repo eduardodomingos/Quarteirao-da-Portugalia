@@ -1,26 +1,38 @@
 .c-slider {
     .home & {
         @include mq($from: s-tablet) {
+            .slick-slide {
+                background: #fff;
+            }
             /* slide when not active/center*/
             .slick-slide,
             .slick-slide[aria-hidden="true"]:not(.slick-cloned) ~ .slick-cloned[aria-hidden="true"] {
                 margin: 50px 0px;
                 transform: translateY(0);
                 transition: transform 0.3s;
-                opacity: .5;
+                img {
+                    opacity: .5;
+                }
+                //opacity: .5;
             }
             /* slide when active/center */
             .slick-center,
             .slick-slide[aria-hidden="true"]:not([tabindex="-1"]) + .slick-cloned[aria-hidden="true"] {
                 transform: translateY(-50px);
-                opacity: 1;
+                //opacity: 1;
+                img {
+                    opacity: 1;
+                }
             }
         }
 
         .slick-slide {
             @include attention() {
                 transform: translateY(-50px);
-                opacity: 1;
+                //opacity: 1;
+                img {
+                    opacity: 1;
+                }
             }
         }
     }

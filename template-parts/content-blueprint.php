@@ -100,9 +100,6 @@
                                     </svg>
                                 </button>
                                 <div class="modal-inner">
-                                    <figure class="media main-modal-media">
-                                        <?php echo wp_get_attachment_image($item['blueprint']['image'], 'large'); ?>
-                                    </figure>
                                     <div class="content-wrapper">
                                         <?php echo $item['blueprint']['text'];?>
                                     </div>

@@ -237,3 +237,13 @@ function qpt_get_template_part( $slug, $name = null, $data = array() ) {
         $file = "{$slug}.php";
     include locate_template( $file );
 }
+
+// Prefix section links with home url for all pages except front page
+add_filter( 'nav_menu_link_attributes', function ( $atts, $item, $args, $depth ) {	
+	if ( !is_front_page() ) {
+		if(substr($atts['href'], 0, 1) === '#') {
+			$atts['href'] = get_home_url() . '/' . $atts['href'];
+		}
+	}
+    return $atts;
+}, 10, 4 ); // 4 so we get all arguments

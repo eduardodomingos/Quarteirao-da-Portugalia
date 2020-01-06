@@ -1,7 +1,7 @@
-<section <?php echo $settings['id'] ? 'id="'. $settings['id'] .'"' :  ''; ?> class="block block-content <?php echo $settings['color'] ? $settings['color'] :''; ?> <?php echo $settings['heading'] ? $settings['heading'] :''; ?>">
+<section <?php echo $settings['id'] ? 'id="'. $settings['id'] .'"' :  ''; ?> class="block block-content multiple-rows <?php echo $settings['color'] ? $settings['color'] :''; ?> <?php echo $settings['heading'] ? $settings['heading'] :''; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-sm <?php echo $contents['column_1']['animation'] ? 'wow fast '. $contents['column_1']['animation'] : ''; ?> <?php echo $settings['position'] == 'right' ? 'order-md-2' : '';?>" >
+            <div class="col-sm col-lg-5 <?php echo $contents['column_1']['animation'] ? 'wow fast '. $contents['column_1']['animation'] : ''; ?> <?php echo $settings['position'] == 'right' ? 'order-md-2' : '';?>" >
                 <?php if(count($contents['column_1']['photos']) > 0): ?>
                         <ul class="c-list-images">
                         <?php foreach($contents['column_1']['photos'] as $photos): ?>
@@ -12,7 +12,7 @@
                     </ul>
                 <?php endif; ?>
             </div>
-            <div class="col-sm <?php echo $contents['column_2']['animation'] ? 'wow fast '. $contents['column_2']['animation'] : ''; ?> <?php echo $settings['position'] == 'right' ? 'order-md-1' : '';?>">
+            <div class="col-sm col-lg-5 offset-lg-2 <?php echo $contents['column_2']['animation'] ? 'wow fast '. $contents['column_2']['animation'] : ''; ?> <?php echo $settings['position'] == 'right' ? 'order-md-1' : '';?>">
                 <?php echo  $contents['column_2']['content']; ?>
                 <?php if($contents['column_2']['more_link']):?>
                     <p class="more-link">
